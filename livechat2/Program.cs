@@ -1,9 +1,17 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using System.Configuration;
+using livechat2.Data;
+using Microsoft.EntityFrameworkCore;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+builder.Services.AddDbContext<ApplicationDbContext>(Options => {
+    Options.UseMySQL(builder.Configuration.GetConnectionString("Default"));
+});
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
