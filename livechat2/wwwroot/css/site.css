@@ -14,8 +14,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
 }
+.pb-3{
+    background:none !important;
+}
 
-<<<<<<< Updated upstream
 .container {
     margin: 60px auto;
     background: #fff;
@@ -42,14 +44,18 @@ body {
 .settings-tray--right {
     float: right;
 }
+.no-gutters{
+    background:white;
+    border-radius:5px;
+}
 
-    .settings-tray--right i {
-        margin-top: 10px;
-        font-size: 25px;
-        color: grey;
-        margin-left: 14px;
-        transition: 0.3s;
-    }
+.settings-tray--right i {
+    margin-top: 10px;
+    font-size: 25px;
+    color: grey;
+    margin-left: 14px;
+    transition: 0.3s;
+}
 
         .settings-tray--right i:hover {
             color: #74b9ff;
@@ -72,10 +78,11 @@ body {
             vertical-align: middle;
         }
 
-input {
+.search-box input {
     border: none;
     border-radius: 30px;
-    width: 80%;
+    width: 100% !important;
+    padding:10px !important;
 }
 
     input::placeholder {
@@ -129,10 +136,6 @@ input {
         color: #fff !important;
     }
 
-hr {
-    margin: 5px auto;
-    width: 60%;
-}
 
 .chat-bubble {
     padding: 10px 14px;
@@ -184,7 +187,7 @@ hr {
 }
 
 .chat-box-tray {
-    background: #eee;
+    background: #eee !important;
     display: flex;
     align-items: baseline;
     padding: 10px 15px;
@@ -192,11 +195,13 @@ hr {
     margin-top: 19px;
     bottom: 0;
 }
-
-    .chat-box-tray input {
-        margin: 0 10px;
-        padding: 6px 2px;
-    }
+.chat-panel{
+    background:white!important;
+}
+.chat-box-tray input {
+    margin: 0 10px !important;
+    padding: 6px 2px !important;
+}
 
     .chat-box-tray i {
         color: grey;
@@ -234,4 +239,4 @@ hr {
 
 
 }
->>>>>>> Stashed changes
+

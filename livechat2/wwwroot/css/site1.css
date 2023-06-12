@@ -9,8 +9,6 @@
 }
 
 .login-form-box {
-    background-color: #fff;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     padding: 10px 30px 30px 30px;
     width: 600px;
     border-radius: 5px;
@@ -130,7 +128,7 @@ body {
 }
 
 /* Add padding to container elements */
-.container {
+.containera {
     padding: 20px;
     width: 500px;
     position: absolute;
@@ -176,7 +174,7 @@ input[type=phone] {
 }
 
     input[type=text]:focus, input[type=password]:focus, input[type=phone]:focus, select:focus {
-        background-color: #ddd;
+        
         outline: none;
     }
 
