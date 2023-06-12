@@ -15,6 +15,7 @@ body {
     text-rendering: optimizeLegibility;
 }
 
+<<<<<<< Updated upstream
 .container {
     margin: 60px auto;
     background: #fff;
@@ -228,3 +229,9 @@ hr {
     ::-webkit-scrollbar-thumb:hover {
         background: #555;
     }
+=======
+
+
+
+}
+>>>>>>> Stashed changes
