@@ -124,7 +124,7 @@ body {
 /* Add padding to container elements */
 .containera {
     padding: 20px;
-    height: 500px;
+    min-height: 400px;
     width: 500px;
     position: absolute;
     left: 50%;
