@@ -115,10 +115,12 @@ body {
     .friend-drawer .text h6 {
         margin-top: 6px;
         margin-bottom: 0;
+        text-transform:capitalize;
     }
 
     .friend-drawer .text p {
         margin: 0;
+        font-size:12px;
     }
 
 .friend-drawer .time {
@@ -142,33 +144,15 @@ body {
     background: #eee;
     margin: 10px 30px;
     border-radius: 9px;
-    position: relative;
     animation: fadeIn 1s ease-in;
+    max-width:200px;
 }
-
-    .chat-bubble:after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        width: 0;
-        height: 0;
-        border: 20px solid transparent;
-        border-bottom: 0;
-        margin-top: -10px;
-    }
-
-.chat-bubble--left:after {
-    left: 0;
-    border-right-color: #eee;
-    border-left: 0;
-    margin-left: -20px;
+.offset-md-9 {
+    background: #333;
+    color: white;
 }
+.left{
 
-.chat-bubble--right:after {
-    right: 0;
-    border-left-color: #74b9ff;
-    border-right: 0;
-    margin-right: -20px;
 }
 
 @keyframes fadeIn {
@@ -192,11 +176,14 @@ body {
     align-items: baseline;
     padding: 10px 15px;
     align-items: center;
-    margin-top: 19px;
-    bottom: 0;
+    position:fixed;
+    width:760px;
 }
-.chat-panel{
-    background:white!important;
+.chat-panel {
+    background: white !important;
+    height: 465px;
+    overflow-y: scroll;
+    flex-direction: column-reverse;
 }
 .chat-box-tray input {
     margin: 0 10px !important;
@@ -234,9 +221,24 @@ body {
     ::-webkit-scrollbar-thumb:hover {
         background: #555;
     }
-=======
 
 
 
 }
 
+#chat3 .form-control {
+    border-color: transparent;
+}
+
+    #chat3 .form-control:focus {
+        border-color: transparent;
+        box-shadow: inset 0px 0px 0px 1px transparent;
+    }
+
+.badge-dot {
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    margin-left: 2.9rem;
+    margin-top: -.75rem;
+}

@@ -1,5 +1,11 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity;
+@model livechat2.Models.Chat
+@{
     ViewData["Title"] = "Home Page";
+}
+@inject Microsoft.AspNetCore.Identity.UserManager<IdentityUser> _userManager
+@{
+    string userId = _userManager.GetUserId(User);
 }
 
     <div class="row no-gutters">
@@ -7,9 +13,10 @@
             <div class="settings-tray">
                 <img class="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/filip.jpg" alt="Profile img">
                 <span class="settings-tray--right">
-                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <form id="logo@userId
                     <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
                 </form>
+                <input type="hidden" id="currentuser" value="@userId" />
                 </span>
             </div>
             <div class="search-box">
@@ -17,27 +24,27 @@
                     <input placeholder="Search here" type="text">
                 </div>
             </div>
-            <div style="height:430px; overflow-y:scroll">
-        @for(var i=0; i<25; i++)
-        {
-            <div class="friend-drawer friend-drawer--onhover">
+            <div id="usercnt" style="height:430px; overflow-y:scroll">
+       
+            @*<div class="friend-drawer friend-drawer--onhover">
                 <img class="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/robocop.jpg" alt="">
                 <div class="text">
-                    <h6>Robo Cop</h6>
+                    <h6 id="">Robo Cop</h6>
                     <p class="text-muted">Hey, you're arrested!</p>
                 </div>
                 <span class="time text-muted small">13:21</span>
-            </div>
-        }
+            </div>*@
+        
         </div>
         </div>
-        <div class="col-md-8">
+   <div class="col-md-8">
             <div class="settings-tray">
                 <div class="friend-drawer no-gutters friend-drawer--grey">
-                    <img class="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/robocop.jpg" alt="">
+                <img class="profile-image" src="https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="">
                     <div class="text">
-                        <h6>Robo Cop</h6>
-                        <p class="text-muted">Layin' down the law since like before Christ...</p>
+                        <h6 id="chatUserName">Select User</h6>
+                        <span style="display:none;" id="chatUserId"></span>
+                        <p class="text-muted">Online</p>
                     </div>
                     <span class="settings-tray--right">
                         <i class="material-icons">cached</i>
@@ -46,69 +53,20 @@
                     </span>
                 </div>
             </div>
-            <div class="chat-panel">
-                <div class="row no-gutters">
-                    <div class="col-md-3">
-                        <div class="chat-bubble chat-bubble--left">
-                            Hello dude!
-                        </div>
-                    </div>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col-md-3 offset-md-9">
-                        <div class="chat-bubble chat-bubble--right">
-                            Hello dude!
-                        </div>
-                    </div>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col-md-3 offset-md-9">
-                        <div class="chat-bubble chat-bubble--right">
-                            Hello dude!
-                        </div>
-                    </div>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col-md-3">
-                        <div class="chat-bubble chat-bubble--left">
-                            Hello dude!
-                        </div>
-                    </div>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col-md-3">
-                        <div class="chat-bubble chat-bubble--left">
-                            Hello dude!
-                        </div>
-                    </div>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col-md-3">
-                        <div class="chat-bubble chat-bubble--left">
-                            Hello dude!
-                        </div>
-                    </div>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col-md-3 offset-md-9">
-                        <div class="chat-bubble chat-bubble--right">
-                            Hello dude!
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="chat-box-tray">
-                            <i class="material-icons">sentiment_very_satisfied</i>
-                            <input type="text" placeholder="Type your message here...">
-                            <i class="material-icons">mic</i>
-                            <i class="material-icons">send</i>
-                        </div>
-                    </div>
-                </div>
+        <div class="chat-panel" id="msgList"></div>
+    <div class="row">
+        <div class="col-12">
+            <div class="chat-box-tray">
+                <i class="material-icons">sentiment_very_satisfied</i>
+                <input id="msg" autocomplete="off" onkeyup="sendmsg()" type="text" placeholder="Type your message here...">
+                <i class="material-icons">mic</i>
+                <i type="submit" style="cursor:pointer;" class="material-icons">send</i>
             </div>
         </div>
+        </div>
     </div>
+    </div>
+
     @section scripts{
         <script>
         $('.friend-drawer--onhover').on('click', function () {
